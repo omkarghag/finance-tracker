@@ -12,8 +12,18 @@ Rails.application.routes.draw do
    # route to get friends of a user
    get 'my_friends', to: 'users#my_friends'
    
+   
+   
    # add route to add a stock to portfolio
    resources :user_stocks, only: [:create, :destroy]
+   resources :users, only: [:show]
+   resources :friendships
+   
+   # search friends route
+   get 'search_friends', to: 'users#search'
+   # route to add a friend
+   post 'add_friend', to: 'users#add_friend'
+    get 'add_friend', to: 'users#add_friend'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
